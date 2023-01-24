@@ -193,12 +193,12 @@ searchInput.addEventListener("input", (e) => {
         });
         addGamesToPage(matched);
     }   else {
-        deleteChildElements();
+        showAllGames();
     }
 })
 const clearButton = document.getElementById('clear')
 
 clearButton.addEventListener("click", () => {
-    deleteChildElements();
+    showAllGames();
 })
 

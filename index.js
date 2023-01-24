@@ -184,35 +184,21 @@ secondGameContainer.appendChild(game2Elem);
 
 const searchInput = document.querySelector('.search');
 searchInput.addEventListener("input", (e) => {
+    deleteChildElements(gamesContainer);
     let value = e.target.value;
-
     if (value && value.trim().length > 0){
-         value = value.trim().toLowerCase()
+        value = value.trim().toLowerCase();
+        let matched = GAMES_JSON.filter( (game) => {
+            return game.name.toLowerCase().includes(value);
+        });
+        addGamesToPage(matched);
+    }   else {
+        deleteChildElements();
     }
 })
 const clearButton = document.getElementById('clear')
 
 clearButton.addEventListener("click", () => {
-    // 1. write a function that removes any previous results from the page
+    deleteChildElements();
 })
 
-function setList(results){
-
-    for (const person of results){
-        deleteChildElements(gamesContainer);
-        // creating a li element for each result item
-        const resultItem = document.createElement('li')
-
-        // adding a class to each item of the results
-        resultItem.classList.add('result-item')
-
-        // grabbing the name of the current point of the loop and adding the name as the list item's text
-        const text = document.createTextNode(person.name)
-
-        // appending the text to the result item
-        resultItem.appendChild(text)
-
-        // appending the result item to the list
-        list.appendChild(resultItem)
-    }
-}

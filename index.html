@@ -50,13 +50,20 @@
     <!-- list of games funded by Sea Monster -->
     <h2>Our Games</h2>
     <p>Check out each of our games below!</p>
+    <br>
     <div id="button-container">
         <button id="unfunded-btn">Show Unfunded Only</button>
         <button id="funded-btn">Show Funded Only</button>
         <button id="all-btn">Show All Games</button>
+        <div class="search-container">
+            <form class="form">
+              <input id="search" placeholder="Search.." type=text class='search' name="search">
+              <button type="submit">Submit</button>
+              <button id="clear" class="clear-results">clear</button>
+            </form>
+        </div>
     </div>
     <div id="games-container">
-
     </div>
 
     <script type="module" src="index.js"></script>
